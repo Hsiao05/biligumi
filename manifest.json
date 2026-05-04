@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Biligumi",
+  "version": "3.0",
+  "description": "悬浮窗与分词检索，实现哔哩哔哩与 Bangumi 资料衔接",
+  "permissions": ["activeTab", "tabs", "storage"],
+  "host_permissions": [
+    "*://*.bilibili.com/*",
+    "*://api.bgm.tv/*"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.bilibili.com/bangumi/play/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
